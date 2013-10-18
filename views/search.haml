@@ -5,6 +5,8 @@
     ='Back to Search'
 #accordion2.accordion
   -collapse_num = 0
+  /loop to create accordion display of the
+  /hotels that are returned from the search
   -@hotels.each do |hotel|
     .accordion-group
       .accordion-heading
@@ -12,12 +14,14 @@
           %img{alt: hotel.name, src: hotel.imageUrl}
           =hotel.name
           %div.icon-colored
+            /loop to display star rating as icons
             - while hotel.starRating>0.7 do
               %i.icon-star
               -hotel.starRating -= 1
             -if hotel.starRating > 0.3
               %i.icon-star-half-empty
           =" #{float_to_dollar(hotel.originalPricePerNight)} per night"
+          /display promotions is accordion overview
           -if !hotel.promotionDescription.empty?
             %br
             .icon-green

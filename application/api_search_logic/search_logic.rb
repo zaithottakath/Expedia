@@ -27,7 +27,8 @@ class Search
       return hotels = nil
     end
 
-    hotels.sort!{|x,y| x.starRating <=> y.starRating}.reverse!
+    #sort with highest star rating first
+    hotels.sort!{|x,y| y.starRating <=> x.starRating}
   end
 
 end
