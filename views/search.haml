@@ -1,0 +1,50 @@
+%div
+  %h1='I want to go to there'
+%div
+  %a{href: '/'}
+    ='Back to Search'
+#accordion2.accordion
+  -collapse_num = 0
+  -@hotels.each do |hotel|
+    .accordion-group
+      .accordion-heading
+        %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse"+collapse_num.to_s}
+          %img{alt: hotel.name, src: hotel.imageUrl}
+          =hotel.name
+          %div.icon-colored
+            - while hotel.starRating>0.7 do
+              %i.icon-star
+              -hotel.starRating -= 1
+            -if hotel.starRating > 0.3
+              %i.icon-star-half-empty
+          =" #{float_to_dollar(hotel.originalPricePerNight)} per night"
+          -if !hotel.promotionDescription.empty?
+            %br
+            .icon-green
+              %i.icon-money
+            =hotel.promotionDescription+' '
+            %i.icon-long-arrow-right
+            ="#{float_to_dollar(hotel.pricePerNight)} per night"
+            .icon-green
+              %i.icon-money
+      .accordion-body.collapse{id: "collapse"+collapse_num.to_s}
+        .accordion-inner
+          /wanted to add google map of location but my app
+          /makes too many calls. Google was not happy.
+          /%img{alt:hotel.name, src: gmap(hotel)}
+          %b="Reservation from:"
+          =" #{date(hotel.checkInDate)} "
+          %b="to:"
+          =" #{date(hotel.checkOutDate)}"
+          %br
+          %b=hotel.longDestinationName
+          %br
+          %b="About:"
+          =" #{hotel.description}"
+          %br
+          %b
+            = 'Expedia: '
+            %a{href: "#{URI.unescape(hotel.dealDeepLink)}"}
+              =deal_link(hotel)
+
+    -collapse_num +=1

@@ -1,0 +1,32 @@
+%h1 Search Expedia
+%h6 Only City is required. Feel free to leave the rest blank.
+%form.form-horizontal{action: "search", method: "get"}
+  %div.control-group
+    %label.control-label{for:'city'} City (required)
+    %div.controls
+      %input{name: "city", type: "text", placeholder:"City"}
+  %div.control-group
+    %label.control-label{for:'streetAddress'} Street Address
+    %div.controls
+      %input{name: "streetAddress", type: "text", placeholder: 'Street Address'}
+  %div.control-group
+    %label.control-label{for:'maxPricePerNight'} Maximum Price Per Night
+    %div.controls
+      %input{name: "maxPricePerNight", type: "number", placeholder: '$ Price (USD)'}
+  %div.control-group
+    %label.control-label{for: 'minStarRating'} Minimum Stars
+    %div.controls
+      %select{name: 'minStarRating'}
+        %option{selected: 'selected'} 0
+        %option 1
+        %option 2
+        %option 3
+        %option 4
+        %option 5
+  %div.control-group
+    %div.form-inline
+      %label{:for => "checkInDate"} From
+      %input#from{:name => "checkInDate", :type => "text"}
+      %label{:for => "checkOutDate"} to
+      %input#to{:name => "checkOutDate", :type => "text"}
+      %input{type: "submit", value: "Submit"}

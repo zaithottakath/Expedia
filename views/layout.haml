@@ -1,0 +1,15 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    = bootstrap_assets
+    %link{href: "font-awesome/css/font-awesome.min.css", rel: "stylesheet"}
+    %link{href: "css/custom.css", rel: "stylesheet"}
+    %script{:src => "js/jquery-1.9.1.js"}
+    %script{:src => "js/jquery-ui-1.10.3.custom.min.js"}
+    %script{:src => "js/custom.js"}
+    %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
+    %meta{ :charset => "utf-8" }
+    %title= @title || 'I want to go to there'
+  %body
+    .container
+      = yield
