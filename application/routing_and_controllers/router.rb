@@ -11,9 +11,17 @@ get '/search' do
 end
 
 get '/timeout' do
-  "Oops. Looks like we couldn't handle your request. Press back and try again"
+  haml :timeout
 end
 
 get '/invalid_search' do
-  'Oops. Your search needs tweaking. Press back and try again.'
+  haml :invalid_search
+end
+
+not_found do
+  haml :'404'
+end
+
+error do
+  haml :'500'
 end
