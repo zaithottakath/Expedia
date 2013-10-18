@@ -6,7 +6,3 @@
 2. Execute:
     sudo gem install bundle
 3. Clone this git repository
-4.
-
-
-
