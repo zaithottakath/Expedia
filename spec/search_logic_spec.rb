@@ -47,7 +47,7 @@ describe Search do
       Search.multi_search(params).must_be_instance_of Array
     end
 
-    it "convers hotel hashes into OpenStruct" do
+    it "converts hotel hashes into OpenStruct" do
       Search.multi_search(params).each do |hotel|
         hotel.must_be_kind_of OpenStruct
       end
