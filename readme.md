@@ -18,3 +18,5 @@ The application is simple. It calls the Expedia API and parses the JSON into an 
 The search results page is simple. I'm not very familiar with JavaScript so I used Twitter Bootstrap to add some styling and transitions. All the search results are ordered by star ranking. Assuming the user put in what the maximum amount they are willing to spend, the best hotel within their price range will be their first result. I used accordion style results to keep the user from being overloaded with information when they have 30+ results. I restricted initial information to only hotel, picture of hotel, star rating, price, and discounts (if any).
 
 A couple issues with my application: My acceptance tests could be better but I ran into issues with capybara not finding the haml files. I was forced to move the acceptance test from the spec folder to the root directory to get the test to pass. Additionally, the date picker on the root page does not restrict the "to" (date field) to only future dates.
+
+View on Heroku: http://blooming-thicket-4513.herokuapp.com/
